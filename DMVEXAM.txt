@@ -1,0 +1,141 @@
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+class TestGrader
+{
+private:
+	
+	char answerKey[20] = { 'B','D','A','A','C','A','B','A','C','D','B','C','D','A','D','C','C','B','D','A' };
+
+public:
+	void setKey()
+	{
+		//string answers = { 'B','D','A','A','C','A','B','A','C','D','B','C','D','A','D','C','C','B','D','A' };
+		//strcpy_s(answerKey, answers.c_str());
+	}
+
+	void grade()
+	{
+		const int size = 20;
+		char gradeArray[size];
+		cout << "What are your guesses" << endl;
+		for (int i = 0; i < size; i++)
+		{
+			cout << "Problem " << (i+1) << ": ";
+			cin >> gradeArray[i];
+			if ((gradeArray[i] == 'A' ) || ( gradeArray[i] == 'B' ) || (gradeArray[i] == 'C') || (gradeArray[i] =='D'))
+			{
+
+			}
+			else
+			{
+				cout << "Wrong button use A,B,C,D" << endl;
+				cin >> gradeArray[i];
+			}
+
+		}
+
+
+		int correct = 0;
+		int incorrect = 0;
+		cout << "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$" << endl;
+		for (int i = 0; i < size; i++)
+		{
+			if (gradeArray[i] == answerKey[i])
+			{
+				cout << "Problem " << (i+1) << ": Correct " << endl;
+				correct++;
+			}
+			else
+			{
+				cout << "Problem" << (i + 1) << ": Incorrect" << endl;
+				incorrect++;
+			}
+		}
+		cout << "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$" << endl;
+		cout << "These are the correct anwser: " << correct << endl;
+		if (correct > 15)
+			cout << "Guess what my dude.....(whispers)you pass" << endl;
+		else
+			cout << "I forgot to tell you ...that you failed" << endl;
+	}
+
+};
+
+
+int main()
+{
+	cout << "Welcome to the Gangster DMV EXAM Get your hood on" << endl;
+	char doAgain;
+	do
+	{
+		TestGrader test;
+
+		test.grade();
+
+		cout << "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$" << endl;
+
+
+		cout << "want to grade it again " << endl;
+		cin >> doAgain;
+	}
+
+	while ((doAgain == 'Y') || (doAgain == 'y'));
+	{
+		return 0;
+	}
+
+    return 0;
+}
+Enter your answers
+Problem 1: B
+Problem 2: D
+Problem 3: A
+Problem 4: A
+Problem 5: C
+Problem 6: A
+Problem 7: B
+Problem 8: D
+Problem 9: E
+Invalid Input. Enter again: (A,B,C,D)
+D
+Problem 10: D
+Problem 11: B
+Problem 12: C
+Problem 13: D
+Problem 14: A
+Problem 15: A
+Problem 16: C
+Problem 17: C
+Problem 18: B
+Problem 19: D
+Problem 20: D
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+Problem 1: Correct
+Problem 2: Correct
+Problem 3: Correct
+Problem 4: Correct
+Problem 5: Correct
+Problem 6: Correct
+Problem 7: Correct
+Problem8: Incorrect
+Problem9: Incorrect
+Problem 10: Correct
+Problem 11: Correct
+Problem 12: Correct
+Problem 13: Correct
+Problem 14: Correct
+Problem15: Incorrect
+Problem 16: Correct
+Problem 17: Correct
+Problem 18: Correct
+Problem 19: Correct
+Problem20: Incorrect
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+These are the correct anwser: 16
+Guess what my dude.....(whispers)you pass
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+want to grade it again
